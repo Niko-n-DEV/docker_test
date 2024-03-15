@@ -1,0 +1,25 @@
+[package]
+name = "bevy_tilemapex"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+bevy = "0.13.0"
+
+# bevy_egui = { version = "0.25.0" }
+bevy_ecs_tilemap = { git = "https://github.com/StarArawn/bevy_ecs_tilemap", branch = "main", features = [
+    "atlas",
+] }
+
+[profile.dev]
+opt-level = 1
+
+#[profile.dev.package."*"]
+#opt-level = 3
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+strip = true
+panic = "abort"
